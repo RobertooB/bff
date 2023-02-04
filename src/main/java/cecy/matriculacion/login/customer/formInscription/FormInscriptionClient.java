@@ -11,22 +11,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-@FeignClient(name = "bff.catalogue", url = "http://localhost:8000/api/catalogue")
-public interface CatalogueClient {
+@FeignClient(name = "bff.formInscripcion", url = "http://localhost:8082/api/formInscription")
+public interface FormInscriptionClient {
 
     @GetMapping("/{id}/")
-    CatalogueDTO findById(@PathVariable("id") Long id);
+    FormInscriptionDTO findById(@PathVariable("id") Long id);
 
     @GetMapping("/")
-    List<CatalogueDTO> findAll();
+    List<FormInscriptionDTO> findAll();
 
     @PostMapping("/")
-    CatalogueDTO save(CatalogueDTO entity);
+    FormInscriptionDTO save(FormInscriptionDTO entity);
 
     @DeleteMapping("/{id}/")
     void deleteById(@PathVariable("id") Long id);
 
     @PutMapping("/{id}/")
-    CatalogueDTO update(@PathVariable("id") Long id, CatalogueDTO entity);
-    
+    FormInscriptionDTO update(@PathVariable("id") Long id, FormInscriptionDTO entity);
 }

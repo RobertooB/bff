@@ -18,54 +18,54 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.service.annotation.PatchExchange;
 
 @RestController
-@RequestMapping("api/catalogo")
+@RequestMapping("api/prerequisite")
 @CrossOrigin({"*"})
-public class CatalogueController {
-    @Autowired CatalogueClient catalogo;
+public class PrerequisiteController {
+    @Autowired PrerequisiteClient prerequisite;
 
     @GetMapping("/")
-    public List<CatalogueDTO> findAll(){
-        return catalogo.findAll();
+    public List<PrerequisiteDTO> findAll(){
+        return prerequisite.findAll();
     }
 
     @GetMapping("/{id}/")
-    public CatalogueDTO finById(@PathVariable Long id){
-        return catalogo.findById(id);
+    public PrerequisiteDTO finById(@PathVariable Long id){
+        return prerequisite.findById(id);
     }
 
     @PostMapping("/")
-    public CatalogueDTO save(@RequestBody CatalogueDTO entity){
-        return catalogo.save(entity);
+    public PrerequisiteDTO save(@RequestBody PrerequisiteDTO entity){
+        return prerequisite.save(entity);
     }
 
     @DeleteMapping("/{id}/")
     public void deleteById(@PathVariable Long id){
-        catalogo.deleteById(id);
+        prerequisite.deleteById(id);
     }
 
     @PutMapping("/{id}/")
-    public CatalogueDTO update(@PathVariable Long id, @RequestBody CatalogueDTO entity){
-        return catalogo.update(id, entity);
+    public PrerequisiteDTO update(@PathVariable Long id, @RequestBody PrerequisiteDTO entity){
+        return prerequisite.update(id, entity);
     }
 
     @PatchMapping("/{id}/")
-    public CatalogueDTO partialUpdate(@PathVariable Long id, @RequestBody Map<String, Object> fields){
+    public PrerequisiteDTO partialUpdate(@PathVariable Long id, @RequestBody Map<String, Object> fields){
 
-        CatalogueDTO CatalogueDTO = catalogo.findById(id);
+        PrerequisiteDTO PrerequisiteDTO = prerequisite.findById(id);
 
         for (Map.Entry<String, Object> field : fields.entrySet()){
             String fieldName = field.getKey();
             Object fieldValue = field.getValue();
 
             try{
-                Field campoEntidad = CatalogueDTO.class.getDeclaredField(fieldName);
+                Field campoEntidad = PrerequisiteDTO.class.getDeclaredField(fieldName);
                 campoEntidad.setAccessible(true);
-                campoEntidad.set(CatalogueDTO, fieldValue);
+                campoEntidad.set(PrerequisiteDTO, fieldValue);
             } catch (NoSuchFieldException | IllegalAccessException ex){
 
             }
         } 
-        return catalogo.update(id, CatalogueDTO);
+        return prerequisite.update(id, PrerequisiteDTO);
     }
 
 }

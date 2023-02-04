@@ -1,4 +1,4 @@
-package cecy.matriculacion.login.customer;
+package cecy.matriculacion.login.customer.catalogue;
 
 import lombok.Data;
 

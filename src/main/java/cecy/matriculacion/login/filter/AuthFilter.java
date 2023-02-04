@@ -36,10 +36,10 @@ public class AuthFilter implements Filter {
         ResponseEntity<String> httpResponse;
         String authHeader = httpRequest.getHeader("Authorization");
 
-        if (authHeader==null){
-            ((HttpServletResponse) response).setStatus(HttpStatus.FORBIDDEN.value());
-            return;
-        }
+        // if (authHeader==null){
+        //     ((HttpServletResponse) response).setStatus(HttpStatus.FORBIDDEN.value());
+        //     return;
+        // }
 
         String endpoint = httpRequest.getRequestURI();
         String method = httpRequest.getMethod();
