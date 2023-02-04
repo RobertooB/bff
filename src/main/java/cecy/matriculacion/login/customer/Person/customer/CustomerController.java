@@ -1,4 +1,4 @@
-package cecy.matriculacion.login.customer;
+package cecy.matriculacion.login.customer.Person.customer;
 
 import java.lang.reflect.Field;
 import java.util.List;

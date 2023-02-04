@@ -1,31 +1,30 @@
-package cecy.matriculacion.login.customer.prerequisites;
+package cecy.matriculacion.login.customer.asistencia.asistencia;
 
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
 
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-@FeignClient(name = "bff.prerequisite", url = "http://localhost:8001/api/prerequisite")
-public interface PrerequisiteClient {
+@FeignClient(name = "bff.asistencia", url = "http://localhost:8085/api/asistencia")
+public interface AsistenciaClient {
 
     @GetMapping("/{id}/")
-    PrerequisiteDTO findById(@PathVariable("id") Long id);
+    AsistenciaDTO findById(@PathVariable("id") Long id);
 
     @GetMapping("/")
-    List<PrerequisiteDTO> findAll();
+    List<AsistenciaDTO> findAll();
 
     @PostMapping("/")
-    PrerequisiteDTO save(PrerequisiteDTO entity);
+    AsistenciaDTO save(AsistenciaDTO entity);
 
     @DeleteMapping("/{id}/")
     void deleteById(@PathVariable("id") Long id);
 
     @PutMapping("/{id}/")
-    PrerequisiteDTO update(@PathVariable("id") Long id, PrerequisiteDTO entity);
+    AsistenciaDTO update(@PathVariable("id") Long id, AsistenciaDTO entity);
 }

@@ -1,4 +1,4 @@
-package cecy.matriculacion.login.customer.prerequisites;
+package cecy.matriculacion.login.customer.Person.customer;
 
 import java.util.List;
 
@@ -11,21 +11,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-@FeignClient(name = "bff.prerequisite", url = "http://localhost:8001/api/prerequisite")
-public interface PrerequisiteClient {
+@FeignClient(name = "bff.customer", url = "http://localhost:8000/api/persona")
+public interface CustomerClient {
 
     @GetMapping("/{id}/")
-    PrerequisiteDTO findById(@PathVariable("id") Long id);
+    CustomerDTO findById(@PathVariable("id") Long id);
 
     @GetMapping("/")
-    List<PrerequisiteDTO> findAll();
+    List<CustomerDTO> findAll();
 
     @PostMapping("/")
-    PrerequisiteDTO save(PrerequisiteDTO entity);
+    CustomerDTO save(CustomerDTO entity);
 
     @DeleteMapping("/{id}/")
     void deleteById(@PathVariable("id") Long id);
 
     @PutMapping("/{id}/")
-    PrerequisiteDTO update(@PathVariable("id") Long id, PrerequisiteDTO entity);
+    CustomerDTO update(@PathVariable("id") Long id, CustomerDTO entity);
+
 }
+
+// @PutMapping("/{id}/completardatos/")
+//     CustomerDTO completardatos(@PathVariable("id") Long id);

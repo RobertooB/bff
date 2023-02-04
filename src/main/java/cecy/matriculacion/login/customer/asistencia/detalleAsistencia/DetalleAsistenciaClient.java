@@ -1,4 +1,4 @@
-package cecy.matriculacion.login.customer;
+package cecy.matriculacion.login.customer.asistencia.detalleAsistencia;
 
 import java.util.List;
 
@@ -11,21 +11,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-@FeignClient(name = "bff.formInscripcion", url = "http://localhost:8082/api/formInscription")
-public interface FormInscriptionClient {
+@FeignClient(name = "bff.detalleAsistencia", url = "http://localhost:8085/api/detalleAsistencia")
+public interface DetalleAsistenciaClient {
 
     @GetMapping("/{id}/")
-    FormInscriptionDTO findById(@PathVariable("id") Long id);
+    DetalleAsistenciaDTO findById(@PathVariable("id") Long id);
 
     @GetMapping("/")
-    List<FormInscriptionDTO> findAll();
+    List<DetalleAsistenciaDTO> findAll();
 
     @PostMapping("/")
-    FormInscriptionDTO save(FormInscriptionDTO entity);
+    DetalleAsistenciaDTO save(DetalleAsistenciaDTO entity);
 
     @DeleteMapping("/{id}/")
     void deleteById(@PathVariable("id") Long id);
 
     @PutMapping("/{id}/")
-    FormInscriptionDTO update(@PathVariable("id") Long id, FormInscriptionDTO entity);
+    DetalleAsistenciaDTO update(@PathVariable("id") Long id, DetalleAsistenciaDTO entity);
 }

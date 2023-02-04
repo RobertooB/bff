@@ -1,4 +1,4 @@
-package cecy.matriculacion.login.customer;
+package cecy.matriculacion.login.customer.Person.customer;
 import java.util.Date;
 
 import lombok.Data;

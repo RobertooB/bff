@@ -1,4 +1,4 @@
-package cecy.matriculacion.login.customer.prerequisites;
+package cecy.matriculacion.login.customer.asistencia.detalleAsistencia;
 
     import java.lang.reflect.Field;
 import java.util.List;
@@ -18,54 +18,54 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.service.annotation.PatchExchange;
 
 @RestController
-@RequestMapping("api/prerequisite")
+@RequestMapping("api/detalleAsistencia")
 @CrossOrigin({"*"})
-public class PrerequisiteController {
-    @Autowired PrerequisiteClient prerequisite;
+public class DetalleAsistenciaController {
+    @Autowired DetalleAsistenciaClient detalleAsistencia;
 
     @GetMapping("/")
-    public List<PrerequisiteDTO> findAll(){
-        return prerequisite.findAll();
+    public List<DetalleAsistenciaDTO> findAll(){
+        return detalleAsistencia.findAll();
     }
 
     @GetMapping("/{id}/")
-    public PrerequisiteDTO finById(@PathVariable Long id){
-        return prerequisite.findById(id);
+    public DetalleAsistenciaDTO finById(@PathVariable Long id){
+        return detalleAsistencia.findById(id);
     }
 
     @PostMapping("/")
-    public PrerequisiteDTO save(@RequestBody PrerequisiteDTO entity){
-        return prerequisite.save(entity);
+    public DetalleAsistenciaDTO save(@RequestBody DetalleAsistenciaDTO entity){
+        return detalleAsistencia.save(entity);
     }
 
     @DeleteMapping("/{id}/")
     public void deleteById(@PathVariable Long id){
-        prerequisite.deleteById(id);
+        detalleAsistencia.deleteById(id);
     }
 
     @PutMapping("/{id}/")
-    public PrerequisiteDTO update(@PathVariable Long id, @RequestBody PrerequisiteDTO entity){
-        return prerequisite.update(id, entity);
+    public DetalleAsistenciaDTO update(@PathVariable Long id, @RequestBody DetalleAsistenciaDTO entity){
+        return detalleAsistencia.update(id, entity);
     }
 
     @PatchMapping("/{id}/")
-    public PrerequisiteDTO partialUpdate(@PathVariable Long id, @RequestBody Map<String, Object> fields){
+    public DetalleAsistenciaDTO partialUpdate(@PathVariable Long id, @RequestBody Map<String, Object> fields){
 
-        PrerequisiteDTO PrerequisiteDTO = prerequisite.findById(id);
+        DetalleAsistenciaDTO DetalleAsistenciaDTO = detalleAsistencia.findById(id);
 
         for (Map.Entry<String, Object> field : fields.entrySet()){
             String fieldName = field.getKey();
             Object fieldValue = field.getValue();
 
             try{
-                Field campoEntidad = PrerequisiteDTO.class.getDeclaredField(fieldName);
+                Field campoEntidad = DetalleAsistenciaDTO.class.getDeclaredField(fieldName);
                 campoEntidad.setAccessible(true);
-                campoEntidad.set(PrerequisiteDTO, fieldValue);
+                campoEntidad.set(DetalleAsistenciaDTO, fieldValue);
             } catch (NoSuchFieldException | IllegalAccessException ex){
 
             }
         } 
-        return prerequisite.update(id, PrerequisiteDTO);
+        return detalleAsistencia.update(id, DetalleAsistenciaDTO);
     }
 
 }

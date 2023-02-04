@@ -1,5 +1,6 @@
-package cecy.matriculacion.login.customer;
+package cecy.matriculacion.login.customer.Formulario.formInscription;
 
+import cecy.matriculacion.login.customer.Formulario.catalogueForm.CatalogueFormDTO;
 import lombok.Data;
 
 @Data

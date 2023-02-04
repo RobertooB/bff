@@ -1,30 +1,30 @@
-package cecy.matriculacion.login.customer.catalogue;
+package cecy.matriculacion.login.customer.asistencia.catalogoAsistencia;
 
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-@FeignClient(name = "bff.catalogue", url = "http://localhost:8000/api/catalogo")
-public interface CatalogueClient {
+@FeignClient(name = "bff.catalogoAsistencia", url = "http://localhost:8085/api/catalogoAsistencia")
+public interface CatalogoAsistenciaClient {
 
     @GetMapping("/{id}/")
-    CatalogueDTO findById(@PathVariable("id") Long id);
+    CatalogoAsistenciaDTO findById(@PathVariable("id") Long id);
 
     @GetMapping("/")
-    List<CatalogueDTO> findAll();
+    List<CatalogoAsistenciaDTO> findAll();
 
     @PostMapping("/")
-    CatalogueDTO save(CatalogueDTO entity);
+    CatalogoAsistenciaDTO save(CatalogoAsistenciaDTO entity);
 
     @DeleteMapping("/{id}/")
     void deleteById(@PathVariable("id") Long id);
 
     @PutMapping("/{id}/")
-    CatalogueDTO update(@PathVariable("id") Long id, CatalogueDTO entity);
-    
+    CatalogoAsistenciaDTO update(@PathVariable("id") Long id, CatalogoAsistenciaDTO entity);
 }

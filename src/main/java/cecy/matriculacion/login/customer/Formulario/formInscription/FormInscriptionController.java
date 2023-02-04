@@ -1,4 +1,4 @@
-package cecy.matriculacion.login.customer.prerequisites;
+package cecy.matriculacion.login.customer.Formulario.formInscription;
 
     import java.lang.reflect.Field;
 import java.util.List;
@@ -18,54 +18,54 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.service.annotation.PatchExchange;
 
 @RestController
-@RequestMapping("api/prerequisite")
+@RequestMapping("api/formInscription")
 @CrossOrigin({"*"})
-public class PrerequisiteController {
-    @Autowired PrerequisiteClient prerequisite;
+public class FormInscriptionController {
+    @Autowired FormInscriptionClient formInscription;
 
     @GetMapping("/")
-    public List<PrerequisiteDTO> findAll(){
-        return prerequisite.findAll();
+    public List<FormInscriptionDTO> findAll(){
+        return formInscription.findAll();
     }
 
     @GetMapping("/{id}/")
-    public PrerequisiteDTO finById(@PathVariable Long id){
-        return prerequisite.findById(id);
+    public FormInscriptionDTO finById(@PathVariable Long id){
+        return formInscription.findById(id);
     }
 
     @PostMapping("/")
-    public PrerequisiteDTO save(@RequestBody PrerequisiteDTO entity){
-        return prerequisite.save(entity);
+    public FormInscriptionDTO save(@RequestBody FormInscriptionDTO entity){
+        return formInscription.save(entity);
     }
 
     @DeleteMapping("/{id}/")
     public void deleteById(@PathVariable Long id){
-        prerequisite.deleteById(id);
+        formInscription.deleteById(id);
     }
 
     @PutMapping("/{id}/")
-    public PrerequisiteDTO update(@PathVariable Long id, @RequestBody PrerequisiteDTO entity){
-        return prerequisite.update(id, entity);
+    public FormInscriptionDTO update(@PathVariable Long id, @RequestBody FormInscriptionDTO entity){
+        return formInscription.update(id, entity);
     }
 
     @PatchMapping("/{id}/")
-    public PrerequisiteDTO partialUpdate(@PathVariable Long id, @RequestBody Map<String, Object> fields){
+    public FormInscriptionDTO partialUpdate(@PathVariable Long id, @RequestBody Map<String, Object> fields){
 
-        PrerequisiteDTO PrerequisiteDTO = prerequisite.findById(id);
+        FormInscriptionDTO FormInscriptionDTO = formInscription.findById(id);
 
         for (Map.Entry<String, Object> field : fields.entrySet()){
             String fieldName = field.getKey();
             Object fieldValue = field.getValue();
 
             try{
-                Field campoEntidad = PrerequisiteDTO.class.getDeclaredField(fieldName);
+                Field campoEntidad = FormInscriptionDTO.class.getDeclaredField(fieldName);
                 campoEntidad.setAccessible(true);
-                campoEntidad.set(PrerequisiteDTO, fieldValue);
+                campoEntidad.set(FormInscriptionDTO, fieldValue);
             } catch (NoSuchFieldException | IllegalAccessException ex){
 
             }
         } 
-        return prerequisite.update(id, PrerequisiteDTO);
+        return formInscription.update(id, FormInscriptionDTO);
     }
 
 }

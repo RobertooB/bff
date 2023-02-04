@@ -1,4 +1,4 @@
-package cecy.matriculacion.login.customer;
+package cecy.matriculacion.login.customer.asistencia.catalogoAsistencia;
 
     import java.lang.reflect.Field;
 import java.util.List;
@@ -18,54 +18,54 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.service.annotation.PatchExchange;
 
 @RestController
-@RequestMapping("api/catalogue")
+@RequestMapping("api/catalogoAsistencia")
 @CrossOrigin({"*"})
-public class CatalogueFormController {
-    @Autowired CatalogueFormClient catalogueForm;
+public class CatalogoAsistenciaController {
+    @Autowired CatalogoAsistenciaClient catalogoAsistencia;
 
     @GetMapping("/")
-    public List<CatalogueFormDTO> findAll(){
-        return catalogueForm.findAll();
+    public List<CatalogoAsistenciaDTO> findAll(){
+        return catalogoAsistencia.findAll();
     }
 
     @GetMapping("/{id}/")
-    public CatalogueFormDTO finById(@PathVariable Long id){
-        return catalogueForm.findById(id);
+    public CatalogoAsistenciaDTO finById(@PathVariable Long id){
+        return catalogoAsistencia.findById(id);
     }
 
     @PostMapping("/")
-    public CatalogueFormDTO save(@RequestBody CatalogueFormDTO entity){
-        return catalogueForm.save(entity);
+    public CatalogoAsistenciaDTO save(@RequestBody CatalogoAsistenciaDTO entity){
+        return catalogoAsistencia.save(entity);
     }
 
     @DeleteMapping("/{id}/")
     public void deleteById(@PathVariable Long id){
-        catalogueForm.deleteById(id);
+        catalogoAsistencia.deleteById(id);
     }
 
     @PutMapping("/{id}/")
-    public CatalogueFormDTO update(@PathVariable Long id, @RequestBody CatalogueFormDTO entity){
-        return catalogueForm.update(id, entity);
+    public CatalogoAsistenciaDTO update(@PathVariable Long id, @RequestBody CatalogoAsistenciaDTO entity){
+        return catalogoAsistencia.update(id, entity);
     }
 
     @PatchMapping("/{id}/")
-    public CatalogueFormDTO partialUpdate(@PathVariable Long id, @RequestBody Map<String, Object> fields){
+    public CatalogoAsistenciaDTO partialUpdate(@PathVariable Long id, @RequestBody Map<String, Object> fields){
 
-        CatalogueFormDTO CatalogueFormDTO = catalogueForm.findById(id);
+        CatalogoAsistenciaDTO CatalogoAsistenciaDTO = catalogoAsistencia.findById(id);
 
         for (Map.Entry<String, Object> field : fields.entrySet()){
             String fieldName = field.getKey();
             Object fieldValue = field.getValue();
 
             try{
-                Field campoEntidad = CatalogueFormDTO.class.getDeclaredField(fieldName);
+                Field campoEntidad = CatalogoAsistenciaDTO.class.getDeclaredField(fieldName);
                 campoEntidad.setAccessible(true);
-                campoEntidad.set(CatalogueFormDTO, fieldValue);
+                campoEntidad.set(CatalogoAsistenciaDTO, fieldValue);
             } catch (NoSuchFieldException | IllegalAccessException ex){
 
             }
         } 
-        return catalogueForm.update(id, CatalogueFormDTO);
+        return catalogoAsistencia.update(id, CatalogoAsistenciaDTO);
     }
 
 }
